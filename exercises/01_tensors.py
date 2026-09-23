@@ -3,10 +3,8 @@ import torch
 from torch import nn
 
 #################
-#     DAY 1     #
+#   EXERCISE 1  #
 #################
-
-### Exercise 1
 
 # float tensor
 fl_tensor = torch.tensor(
@@ -110,7 +108,9 @@ print(f"Datatype of fl_tensor_reshape: {fl_tensor_reshape.dtype}")
 print(f"Tensor is stored on device: {slice_0.device}")
 print()
 
-### Exercise 2
+#################
+#   EXERCISE 2  #
+#################
 
 print(f"Predicting that [4,3] + [3] = RuntimeError")
 print(f"Predicting that [4,1] + [1,3] = [5,4]")
@@ -132,7 +132,9 @@ tensor_3b = torch.ones(4)
 # Doesn't work because trailing 3 and 4 conflict
 # print(f"[4,3] + [3] = {torch.add(tensor_3a, tensor_3b)}")
 
-### Exercise 3
+#################
+#   EXERCISE 3  #
+#################
 
 batch_size = 8
 in_features = 4
@@ -146,7 +148,9 @@ actual = x @ linear_projection.weight.T + linear_projection.bias
 # compare
 torch.testing.assert_close(actual, expected)
 
-### Exercise 4
+#################
+#   EXERCISE 4  #
+#################
 
 batch_size = 2
 sequence_length = 5
@@ -168,7 +172,9 @@ The first two axes (batches, sequence_length) are preserved. The final axis is c
 print(x.shape)
 print(actual.shape)
 
-### Exercise 5
+#################
+#   EXERCISE 5  #
+#################
 
 batch_size = 64  # number of vectors
 in_features = 10
@@ -212,6 +218,7 @@ print((x @ y).shape)
 """
 
 f32_payload = torch.empty(8, 128, 256, dtype=torch.float32)
+
 # numel gives total number of elements
 f32_payload_size = f32_payload.numel() * f32_payload.element_size()
 print(f32_payload_size)
@@ -219,9 +226,3 @@ print(f32_payload_size)
 """
 When calling `torch.transpose` on a tensor, PyTorch doesn't copy or rearrange the underlying data in memory. This causes the tensor to be non-contiguous. Thus, when trying to call view on the tensor, which requires the underlying tensor data memory to be stored contiguously, we get a RuntimeError. The recommended fix is to call reshape on the tensor, which automatically handles non-contiguous tensors.
 """
-
-#################
-#     DAY 2     #
-#################
-
-### Exercise 1

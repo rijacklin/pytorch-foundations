@@ -11,3 +11,4 @@
 
 - Learn all derivative rules including chain rule
 - Investigate Jacobains
+- logarithms
